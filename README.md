@@ -17,7 +17,7 @@ Tecnologias utilizadas:
 
 ## Banco de dados
 
-Durante o desenvolvimento do projeto foi utilizado uma imagem docker do MongoDB. Para execução do projeto com sucesso deverão ser realizados os seguintes passos:
+Durante o desenvolvimento do projeto foi utilizada uma imagem docker do MongoDB. Para execução do projeto com sucesso deverão ser realizados os seguintes passos:
 
 - Instalar docker na máquina local. Após instalado, executar os comandos abaixo através da linha de comando
 - Baixar imagem docker: ***docker pull mongo***
