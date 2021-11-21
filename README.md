@@ -1,6 +1,9 @@
 # Product-ms
 Microserviço de produtos - Desafio
 
+![Endpoints de produto](./pictures/swagger.png "Swagger")
+
+
 Tecnologias utilizadas:
 
 - Java - Linguagem de programação utilizada
