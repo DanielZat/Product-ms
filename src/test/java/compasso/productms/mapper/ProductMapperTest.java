@@ -1,21 +1,18 @@
 package compasso.productms.mapper;
 
-import compasso.productms.entity.ProductEntity;
-import compasso.productms.helper.ProductHelper;
-import compasso.productms.request.ProductRequest;
-import compasso.productms.response.ProductResponse;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import compasso.productms.helper.ProductHelper;
 
 public class ProductMapperTest {
 
     @Test
     public void shouldConvertRequestToEntitySuccessfully() {
 
-        ProductRequest productRequest = ProductHelper.createProductRequest();
+        var productRequest = ProductHelper.createProductRequest();
 
-        ProductEntity productEntity =  ProductMapper.convertRequestToEntity(productRequest);
+        var productEntity = ProductMapper.convertRequestToEntity(productRequest);
 
         Assertions.assertNotNull(productEntity);
         Assertions.assertEquals(productRequest.getName(), productEntity.getName());
@@ -26,9 +23,9 @@ public class ProductMapperTest {
     @Test
     public void shouldConvertEntityToResponseSuccessfully() {
 
-        ProductEntity productEntity =  ProductHelper.createProductEntity();
+        var productEntity = ProductHelper.createProductEntity();
 
-        ProductResponse productResponse = ProductMapper.convertEntityToResponse(productEntity);
+        var productResponse = ProductMapper.convertEntityToResponse(productEntity);
 
         Assertions.assertNotNull(productResponse);
         Assertions.assertEquals(productEntity.getId(), productResponse.getId());
@@ -40,11 +37,11 @@ public class ProductMapperTest {
     @Test
     public void shouldUpdateProductEntityWithProductRequestSuccessfully() {
 
-        ProductRequest productRequest =  ProductHelper.createProductRequest();
+        var productRequest = ProductHelper.createProductRequest();
 
-        ProductEntity productEntity = ProductHelper.createProductEntity();
+        var productEntity = ProductHelper.createProductEntity();
 
-        ProductEntity productEntityUpdated = ProductMapper.updateProductEntityWithProductRequest(productEntity, productRequest);
+        var productEntityUpdated = ProductMapper.updateProductEntityWithProductRequest(productEntity, productRequest);
 
         Assertions.assertNotNull(productEntityUpdated);
         Assertions.assertEquals(productRequest.getName(), productEntity.getName());

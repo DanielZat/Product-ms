@@ -10,6 +10,10 @@ public class ProductHelper {
         return ProductRequest.builder().name("Arroz").description("Arroz Tio João").price(7.50).build();
     }
 
+    public static ProductRequest createCustomProductRequest(String name, String description, Double price) {
+        return ProductRequest.builder().name(name).description(description).price(price).build();
+    }
+
     public static ProductResponse createProductResponse() {
         return ProductResponse.builder().id("6199a4ba8cdb5f7e50643648").name("Feijão").description("Feijão namorado").price(7.50).build();
     }
