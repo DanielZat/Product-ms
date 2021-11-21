@@ -7,7 +7,7 @@ import compasso.productms.response.ProductResponse;
 public class ProductHelper {
 
     public static ProductRequest createProductRequest() {
-        return ProductRequest.builder().name("Arroz").description("Arroz Tio João").price(7.50).build();
+        return ProductRequest.builder().name("Feijão").description("Feijão namorado").price(7.50).build();
     }
 
     public static ProductRequest createCustomProductRequest(String name, String description, Double price) {
