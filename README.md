@@ -13,3 +13,14 @@ Tecnologias utilizadas:
 - Spotless - Identação de código e remoção de imports não utilizados
 - Swagger - Documentação da API
 - Junit - Testes unitários
+
+
+## Banco de dados
+
+Durante o desenvolvimento do projeto foi utilizado uma imagem docker do MongoDB. Para execução do projeto com sucesso deverão ser realizados os seguintes passos:
+
+- Instalar docker na máquina local. Após instalado, executar os comandos abaixo através da linha de comando
+- Baixar imagem docker: ***docker pull mongo***
+- Podemos verificar se imagem foi baixada com sucesso através do comando: ***docker images***
+- Colocar em execução a imagem através da porta 27017: ***docker run -p 27017:27017 mongo***
+- Confirmar que imagem está executando: ***docker ps***
