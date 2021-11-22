@@ -57,7 +57,6 @@ public class ProductService {
     }
 
     public Flux<ProductResponse> searchProducts(SearchProductRequest searchProductRequest) {
-
         return productMongoTemplateRepository.searchProducts(searchProductRequest)
                 .map(ProductMapper::convertEntityToResponse);
     }

@@ -26,10 +26,8 @@ public class ProductServiceTest {
     @MockBean
     private ProductRepository productRepository;
 
-    // TODO: Falta implementar os testes da ProductService
-
     @Test
-    public void teste() {
+    public void shouldCreateProductSuccessfully() {
 
         var productRequest = ProductHelper.createProductRequest();
         var productEntity = ProductMapper.convertRequestToEntity(productRequest);
@@ -41,6 +39,28 @@ public class ProductServiceTest {
 
         Assertions.assertNotNull(productResponse);
         Assertions.assertEquals(productEntityReturn.getId(), productResponse.getId());
+        Assertions.assertEquals(productEntityReturn.getName(), productResponse.getName());
+        Assertions.assertEquals(productEntityReturn.getDescription(), productResponse.getDescription());
+        Assertions.assertEquals(productEntityReturn.getPrice(), productResponse.getPrice());
+    }
 
+    @Test
+    public void shouldUpdateProductSuccessfully() {
+
+        var id = "6199a4ba8cdb5f7e50643648";
+        var productRequest = ProductHelper.createProductRequest();
+        var productEntity = ProductHelper.createProductEntity();
+
+        when(productRepository.findById(id)).thenReturn(Mono.just(productEntity));
+        when(productRepository.save(ProductMapper.updateProductEntityWithProductRequest(productEntity, productRequest))).thenReturn(Mono
+                .just(productEntity));
+
+        var productResponse = productService.updateProduct(id, productRequest).block();
+
+        Assertions.assertNotNull(productResponse);
+        Assertions.assertEquals(id, productResponse.getId());
+        Assertions.assertEquals(productRequest.getName(), productResponse.getName());
+        Assertions.assertEquals(productRequest.getDescription(), productResponse.getDescription());
+        Assertions.assertEquals(productRequest.getPrice(), productResponse.getPrice());
     }
 }
