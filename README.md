@@ -13,6 +13,7 @@ Tecnologias utilizadas:
 - Spotless - Identação de código e remoção de imports não utilizados
 - Swagger - Documentação da API
 - Junit - Testes unitários
+- Mockito - Framework de testes unitários para realização de mock
 
 
 ## Banco de dados
