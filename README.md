@@ -15,8 +15,11 @@ Tecnologias utilizadas:
 - Junit - Testes unitários
 - Mockito - Framework de testes unitários para realização de mock
 
+## Execução do projeto
 
-## Banco de dados
+Para execução do projeto deverá ser instalada a versão 11 do JDK.
+
+### Banco de dados
 
 Durante o desenvolvimento do projeto foi utilizada uma imagem docker do MongoDB. Para execução do projeto com sucesso deverão ser realizados os seguintes passos:
 
