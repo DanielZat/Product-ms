@@ -2,6 +2,8 @@ package compasso.productms.service;
 
 import static org.mockito.Mockito.when;
 
+import java.util.stream.Collectors;
+
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -17,6 +19,7 @@ import compasso.productms.helper.ProductHelper;
 import compasso.productms.mapper.ProductMapper;
 import compasso.productms.repository.ProductRepository;
 
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RunWith(SpringRunner.class)
@@ -119,6 +122,19 @@ public class ProductServiceTest {
             Assertions.assertEquals(HttpStatus.NOT_FOUND, ex.getStatus());
             Assertions.assertEquals("Produto não foi localizado", ex.getReason());
         }
+    }
+
+    @Test
+    public void shouldReturnGetProductsIdSuccessfully() {
+
+        var productEntities = ProductHelper.createListProductEntity();
+
+        when(productRepository.findAll()).thenReturn(Flux.fromIterable(productEntities));
+
+        var productResponses = productService.getProducts().collect(Collectors.toList()).block();
+
+        Assertions.assertNotNull(productResponses);
+        Assertions.assertEquals(2, productResponses.size());
     }
 
     @Test
